@@ -1,21 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:full_flutter_advanced_course/core/routing/app_router.dart';
+import 'package:full_flutter_advanced_course/doc_app.dart';
 
 void main() {
-  runApp(const MainApp());
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text('Flutter Advanced Course'),
-        ),
-      ),
-    );
-  }
+  runApp(DocApp(
+    appRouter: AppRouter(),
+  ));
 }
