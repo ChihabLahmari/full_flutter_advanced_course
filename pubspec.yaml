@@ -49,3 +49,13 @@ flutter:
   assets:
     - assets/images/
     - assets/svgs/
+
+flutter_assets:
+  assets_path:
+    - assets/images/
+    - assets/svgs/
+  output_path: lib/core/helpers/
+  filename: assets_helper.dart
+  field_prefix: null
+  ignore_comments: true
+  classname: Assets
