@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:full_flutter_advanced_course/core/theming/colors.dart';
-import 'package:full_flutter_advanced_course/core/theming/styles.dart';
+
+import '../theming/colors.dart';
+import '../theming/styles.dart';
 
 class MyTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
-  final InputBorder? enabledBorder;
   final InputBorder? focusedBorder;
+  final InputBorder? enabledBorder;
   final TextStyle? inputTextStyle;
   final TextStyle? hintStyle;
   final String hintText;
@@ -14,6 +15,7 @@ class MyTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Color? backgroundColor;
   final TextEditingController? controller;
+  final Function(String?) validator;
   const MyTextFormField({
     super.key,
     this.contentPadding,
@@ -26,22 +28,16 @@ class MyTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.backgroundColor,
     this.controller,
+    required this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       decoration: InputDecoration(
         isDense: true, // to remove the default padding && controle the padding by ourself
         contentPadding: contentPadding ?? EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
-        enabledBorder: enabledBorder ??
-            OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: ColorsManager.lighterGray,
-                width: 1.3,
-              ),
-              borderRadius: BorderRadius.circular(16.0),
-            ),
         focusedBorder: focusedBorder ??
             OutlineInputBorder(
               borderSide: const BorderSide(
@@ -50,6 +46,28 @@ class MyTextFormField extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(16.0),
             ),
+        enabledBorder: enabledBorder ??
+            OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: ColorsManager.lighterGray,
+                width: 1.3,
+              ),
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.red,
+            width: 1.3,
+          ),
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.red,
+            width: 1.3,
+          ),
+          borderRadius: BorderRadius.circular(16.0),
+        ),
         hintStyle: hintStyle ?? TextStyles.font14LightGrayRegular,
         hintText: hintText,
         suffixIcon: suffixIcon,
@@ -57,8 +75,10 @@ class MyTextFormField extends StatelessWidget {
         fillColor: backgroundColor ?? ColorsManager.moreLightGray,
       ),
       obscureText: isObscureText ?? false,
-      style: inputTextStyle ?? TextStyles.font14DarkBlueMedium,
-      controller: controller,
+      style: TextStyles.font14DarkBlueMedium,
+      validator: (value) {
+        return validator(value);
+      },
     );
   }
 }
