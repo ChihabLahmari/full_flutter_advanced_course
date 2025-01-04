@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:full_flutter_advanced_course/core/helpers/spacing.dart';
 import 'package:full_flutter_advanced_course/core/theming/styles.dart';
 import 'package:full_flutter_advanced_course/core/widgets/my_text_button.dart';
-import 'package:full_flutter_advanced_course/features/login/data/models/login_request_body.dart';
 import 'package:full_flutter_advanced_course/features/login/logic/cubit/login_cubit.dart';
 import 'package:full_flutter_advanced_course/features/login/ui/widgets/dont_have_account_text.dart';
 import 'package:full_flutter_advanced_course/features/login/ui/widgets/login_bloc_listener.dart';
@@ -25,7 +24,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                verticalSpace(100),
+                // verticalSpace(100),
                 Text(
                   'Welcome back',
                   style: TextStyles.font24BlueBold,
@@ -72,12 +71,15 @@ class LoginScreen extends StatelessWidget {
 
   void validateThenLogin(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates(
-            LoginRequestBody(
-              email: context.read<LoginCubit>().emailController.text,
-              password: context.read<LoginCubit>().passwordController.text,
-            ),
-          );
+      context.read<LoginCubit>().emitLoginStates();
     }
+    // if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+    //   context.read<LoginCubit>().emitLoginStates(
+    //         LoginRequestBody(
+    //           email: context.read<LoginCubit>().emailController.text,
+    //           password: context.read<LoginCubit>().passwordController.text,
+    //         ),
+    //       );
+    // }
   }
 }
