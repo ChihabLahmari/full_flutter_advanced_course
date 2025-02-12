@@ -5,6 +5,7 @@ import 'package:full_flutter_advanced_course/doc_app.dart';
 
 void main() {
   setUpGetIt();
+  
   runApp(DocApp(
     appRouter: AppRouter(),
   ));
