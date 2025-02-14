@@ -38,8 +38,14 @@ dependencies:
   flutter_screenutil: ^5.9.3
   # An SVG rendering and widget library for Flutter, which allows painting
   flutter_svg: ^2.0.14
+  # Firebase App Distribution
   firebase_core: ^3.10.1
+  # For handling images loading
   cached_network_image: ^3.4.1
+  # for storing data locally
+  shared_preferences: ^2.5.2
+  # for storgin secure data
+  flutter_secure_storage: ^4.2.1
 
 dev_dependencies:
   flutter_test:
