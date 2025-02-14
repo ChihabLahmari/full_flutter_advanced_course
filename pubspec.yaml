@@ -39,6 +39,7 @@ dependencies:
   # An SVG rendering and widget library for Flutter, which allows painting
   flutter_svg: ^2.0.14
   firebase_core: ^3.10.1
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:
