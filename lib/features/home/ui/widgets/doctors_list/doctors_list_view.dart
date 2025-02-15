@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:full_flutter_advanced_course/features/home/data/models/specializations_response_model.dart';
-import 'package:full_flutter_advanced_course/features/home/ui/widgets/doctor_list_view_item.dart';
+import 'package:full_flutter_advanced_course/features/home/ui/widgets/doctors_list/doctor_list_view_item.dart';
 
 class DoctorsListView extends StatelessWidget {
   final List<Doctor?> doctors;
